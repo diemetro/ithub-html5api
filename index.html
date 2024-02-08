@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=32359822-0ad1-4b2a-86bd-71b6fcbde1c1&lang=ru_RU"></script>
+    <!-- <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=mymaps%3AN9HdVqTvGuJt1e8jT0rxVs2gVsZZvhu7&amp;width=1201&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script> -->
+    <title>Путеводитель по городу</title>
+    <style>
+        /* Пример стилей для кнопок навигации */
+        .nav-button {
+            padding: 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <!-- Навигационные кнопки -->
+        <button class="nav-button" onclick="showHomePage()">Главная</button>
+        <button class="nav-button" onclick="showGeolocationPage()">Геолокация</button>
+        <button class="nav-button" onclick="showNavigationPage()">Навигация</button>
+        <button class="nav-button" onclick="showObjectsPage()">История города</button>
+        <button class="nav-button" onclick="searchObjectsPage()">Поиск</button>
+        <button class="nav-button" onclick="customObjectsPage()">Объекты</button>
+    </header>
+    <div>&nbsp;</div>
+    <!-- Контент разделов -->
+    <div id="homePage">
+        <h2>Добро пожаловать в "Городской Путеводитель"!</h2>
+        <p>Исследуйте город с удовольствием и комфортом с нашим уникальным веб-приложением.</p>
+        <section>
+            <h3>Описание функционала</h3>
+            <p>Наше веб-приложение предоставляет удобный способ исследовать город, используя современные технологии.</p>
+            <ul>
+                <li><strong>Геолокация:</strong> Определите свое местоположение и находите ближайшие интересные места.</li>
+                <li><strong>Навигация:</strong> Планируйте маршруты и ориентируйтесь на карте города.</li>
+                <li><strong>Интересные места:</strong> Узнавайте о достопримечательностях и других увлекательных местах в городе.</li>
+                <li><strong>Поиск:</strong> Ищите интересные места вокруг вас и найдется все!</li>
+                <li><strong>Сохранение данных:</strong> Добавляйте свои объекты на карту, сохраняйте объекты и историю посещений</li>
+            </ul>
+            <p>Выберите раздел в шапке страницы и наслаждайтесь путешествием по городу.</p>
+        </section>
+        <div id="home"></div>
+        <div>
+            <video controls width="760" height="430" poster="video.mp4" preload="none" autoplay muted>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <div id="geolocationPage" style="display: none;">
+        <!-- Контент для страницы с геолокацией -->
+        <h1>Геолокация</h1>
+        <h3>Определите ваше местоположение на карте</h3>
+        <h3>и воспользуйтесь поиском ближайших интересных мест.</h3>
+        <div id="geo" style="width: 800px; height: 600px"></div>
+    </div>
+
+    <div id="navigationPage" style="display: none;">
+        <!-- Контент для страницы с навигацией -->
+        <h1>Построить маршрут</h1>
+        <h3>Установите начальную "A" и конечную "B" точки маршрута</h3>
+        <div id="nav" style="width: 800px; height: 600px"></div>
+    </div>
+
+    <div id="objectsPage" style="display: none;">
+        <!-- Контент для страницы с объектами -->
+        <h1>Интересные места</h1>
+        <h3>Достопримечательности исторического центра Москвы</h3>
+        <p>Выберите интересующий объект</p>
+        <select id="geoSelect"></select> <button id="centerButton">Центрировать карту</button>
+        <p>&nbsp;</p>
+        <div id="obj" style="width: 800px; height: 600px"></div>
+    </div>
+
+    <div id="searchPage" style="display: none;">
+        <!-- Контент для страницы с поиском -->
+        <h1>Поиск</h1>
+        <h3>Ищите интересные объекты рядом с вами</h3>
+        <div id="search" style="width: 800px; height: 600px"></div>
+    </div>
+
+    <div id="customPage" style="display: none;">
+        <!-- Контент для страницы с пользовательскими объектами -->
+        <h1>Объекты</h1>
+        <h3>Добавляйте свои объекты на карту правым кликом по точке на карте</h3>
+        <button id="clearMarkersButton">Очистить все маркеры</button>
+        <p>&nbsp;</p>
+        <div id="customobj" style="width: 800px; height: 600px"></div>
+    </div>
+
+    <script src="pages.js"></script>
+    <script src="geo.js"></script>
+    <script src="nav.js"></script>
+    <script src="objects.js"></script>
+    <script src="search.js"></script>
+    <script src="custom.js"></script>
+
+</body>
+</html>
